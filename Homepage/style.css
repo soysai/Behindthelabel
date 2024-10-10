@@ -174,7 +174,6 @@ body.gradient {
     display:none;
     opacity: 0;
     position:absolute;
-    z-index: -1;
     transition: opacity 1s ease-in-out;
     /* min-width: 100vw;  */
     scroll-behavior: smooth; /* Optional: Smooth scrolling */
@@ -201,6 +200,10 @@ body.gradient {
     animation: scroll 30s linear infinite; /* Animation for scrolling */
 }
 
+.scroll-container:hover {
+cursor:pointer;
+animation-play-state: paused;
+}
 
 @keyframes scroll {
     0% {
@@ -209,4 +212,9 @@ body.gradient {
     100% {
         transform: translateX(-100%);
     }
+}
+
+.image-gallery img:hover {
+    transform: scale(1.2); /* Scale up the image slightly */
+    z-index: 10; /* Bring the hovered image to the front */
 }

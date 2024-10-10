@@ -60,16 +60,3 @@ document.querySelector(".ourinitiativesticker").addEventListener("click", functi
         document.body.classList.add('show-gallery');
       }, 2000);
 });
-
-// TO PAUSE ANIMATION
-const scrollContainer = document.querySelector('.scroll-container');
-
-// Function to pause animation on mouse enter
-scrollContainer.addEventListener('mouseenter', function() {
-    scrollContainer.style.animationPlayState = 'paused'; // Pause the animation
-});
-
-// Function to resume animation on mouse leave
-scrollContainer.addEventListener('mouseleave', function() {
-    scrollContainer.style.animationPlayState = 'running'; // Resume the animation
-});
