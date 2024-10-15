@@ -1,0 +1,652 @@
+body {
+    overflow: hidden;
+    background-color:black;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 1s ease;
+}
+
+.clicktoexplore {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border:0;
+    padding: 0;
+    color: yellow;
+    font-size: 30px;
+    font-family: "bookman-jf-pro", serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: 0.3s;
+
+}
+
+/* WHEN HOVERED ON, IT SCALES UP [SMOOTHlY] */
+
+.clicktoexplore:hover{
+    font-size: 50px;
+   transition-property: .3s ease-in-out;
+   cursor: pointer;
+}
+
+.mousetrail {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* background: radial-gradient(#2b00ff, #00d0ff); */
+    z-index:-1;
+    animation: mousetrailAnimation 1s;
+}
+
+@keyframes mousetrailAnimation {
+    0% {
+      opacity: 0.5;
+      transform: scale(3);
+      background: #2b00ff;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+      background:#2cd8ff;
+    }
+}
+
+/* GRADIENT BG ON CLICK */
+
+body.gradient {
+    background: linear-gradient(black, #2b00ff, #2cd8ff, white); /* Gradient from top to bottom */
+    background-size: 400% 400%;
+    animation: gradientAnimation 20s ease infinite;
+  }
+
+/* THE ANIMATION ON TRANSITION */
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 50% 0%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    100% {
+      background-position: 50% 0%;
+    }
+  }
+
+  .videologo{
+    display:none;   /*KEEP IT HIDDEN BEFORE*/
+    opacity:0;
+    transition: opacity 3s ease-in-out;  /*SO IT FADES IN*/
+    scale: 100%;
+    z-index:-1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the video */
+  }
+
+  /* DISPLAY ONLY WHEN GRADIENT BG IS UNLOCKED*/
+
+  body.gradient .videologo {
+    display: block;
+  }
+
+  .marqueesection{
+    display: inline-block;
+    position: absolute;
+    top: 0; 
+    width: 100%; 
+    overflow: hidden; 
+    z-index: 1; 
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    background: red;
+  }
+
+  .marquee span {
+    display: inline-block;
+    font-size: 15px; 
+    color: white; 
+    font-family: "urbane-condensed", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  body.gradient .marqueesection{
+    opacity: 1;  /* Fade in when the background changes */
+  }
+
+  /* TO CREATE STICKER AS BUTTON */
+
+  .ourinitiativesticker{
+    background:none;
+    border:none;
+    display:inline-block;
+    position: absolute;
+    top: 50%; 
+    width: 40%; 
+    z-index: 2; 
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    animation: pulse 2s infinite;
+  }
+
+  body.gradient .ourinitiativesticker {
+    opacity: 1;  /* Fade in when the background changes */
+  }
+
+  @keyframes pulse {
+	0% {
+		transform: scale(0.95);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.95);
+	}
+}
+
+.ourinitiativesticker:hover{
+    animation: none;
+    cursor: pointer;
+}
+
+
+/* WHEN "OUR INITIATIVE" STICKER IS CLICKED, 1) THE LOGO FLIES AWAY */
+
+.slide-up {
+    transform: translateY(-300%); /* Move video up and off the screen */
+    transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Smooth transition */
+    display:none;
+}
+
+/* TO CREATE A HORIZONTAL SCROLL + MARQUEE OF IMAGES */
+.image-gallery {
+    background-color: none;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+    display:none;
+    opacity: 0;
+    position:absolute;
+    transition: opacity 1s ease-in-out;
+    /* min-width: 100vw;  */
+    scroll-behavior: smooth; /* Optional: Smooth scrolling */
+
+}
+  
+.image-gallery img {
+    padding: 10px;
+    /* Using chat to troubleshoot */
+    width: 500px; /* Set a fixed width for all images */
+    height: 500px; /* Set a fixed height for all images */
+    object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+    margin-right: 10px; /* Add space between images */
+    flex-shrink: 0; /* Prevent images from shrinking */
+    position: relative;
+}
+
+.show-gallery .image-gallery {
+    opacity: 1; /* Fade in the gallery */
+}
+
+.scroll-container {
+    display: flex; /* Ensure images are in a row */
+    animation: scroll 60s linear infinite; /* Animation for scrolling */
+    overflow:auto;
+    white-space: nowrap;  
+}
+
+.scroll-container:hover {
+cursor:pointer;
+animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(5%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.image-gallery img:hover {
+    transform: scale(1.2); /* Scale up the image slightly */
+    z-index: 10; /* Bring the hovered image to the front */
+    transition-property: .5s ease-in-out;
+    cursor: pointer;
+}
+
+
+
+/* SOME IMAGES ARE LARGER, SCALE DOWN THE IMAGE */
+
+.amul{
+    scale: 80%;
+    min-width: 600px;
+}
+
+.chingssoup{
+    scale: 80%;
+    min-height: 550px;
+}
+
+.hotpotlays{
+    scale:70%;
+}
+
+.dalmakhani{
+    scale:70%;
+    min-height: 550px;
+}
+
+.doraemon{
+    scale: 60%;
+    min-height: 570px;
+    transform: rotate(35deg)
+}
+
+.cupnoods{
+  transform: translateY(15%);
+}
+
+.cupnoods:hover {
+  transform: translateY(15%);
+}
+
+.furikake{
+  scale: 70%;
+  min-height: 570px;
+}
+
+.hichew{
+  scale: 120%;
+}
+
+.lomien{
+  scale: 140%;
+}
+
+.madhuban{
+  transform: translateY(15%);
+  scale: 70%;
+}
+
+.madhuban{
+  transform: translateY(15%);
+}
+
+.matchamochi{
+  min-height: 570px;
+}
+
+.sauce2{
+  scale: 70%;
+}
+
+.mixture{
+  scale: 70%;  
+  min-height: 570px;
+}
+
+.nori{
+  scale: 70%;
+  min-height: 570px;
+}
+
+.schezwan{
+  transform: translateY(15%);
+}
+
+.seaweedsnac{
+  scale: 140%;
+}
+.sekka{
+  scale: 140%;
+}
+
+.sourcandy{
+  scale: 60%;
+  min-height: 570px;
+}
+
+.sriracha{
+  scale: 140%;
+}
+
+.thething{
+  scale: 60%;
+  min-height: 570px;
+}
+
+.basmati {
+  scale: 140%;
+}
+
+.tomyum{
+  scale: 140%;
+}
+
+.whiterabbit{
+  transform: translateY(15%);
+}
+
+.maggi{
+  scale: 140%;
+}
+
+  /* 2 BUTTONS ON THE BOTTOM FOR NAVIGATING STORY */
+
+  .infobuttons {
+    position: fixed; /* Fix the container at the bottom of the viewport */
+    bottom: 0;
+    display: flex; /* Align buttons side by side */
+    z-index: 10; /* Make sure the buttons appear on top */
+    gap: 20px; /* Add some spacing between the buttons */
+    animation: pulse 2s infinite;
+}
+
+.infobuttons:hover{
+  animation-play-state: paused;
+}
+
+.ourstory, .immigrantinterview {
+    font-size: 15px; 
+    color: black; 
+    font-family: "urbane-condensed", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    border: 2px red dashed;
+    margin: 30px;
+    border-radius: 5%;
+    background: white;
+    scale: 120%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ourstory:hover {
+  transform: scale(1.2); /* Scale up the image slightly */
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+.immigrantinterview:hover {
+  transform: scale(1.2); /* Scale up the image slightly */
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+/* Styles for the modal1 (ourstory) popup */
+
+/* 1) THE  CONTAINER*/
+.modal1{ 
+  border: solid 2px black;
+  background-color: white;
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 55%;
+  line-height: 1.3;
+  display:none;
+}
+
+.modal2{
+  border: solid 2px black;
+  background-color: white;
+  position: fixed;
+  z-index: 1000;
+  top: 10%;
+  left: 20%;
+  /* bring your own prefixes */
+  transform: translate(-30%, -30%);
+  width: 35%;
+  height: 25%;
+  line-height: 1.3;
+  display:none;
+}
+
+.modal3{
+  border: solid 2px black;
+  background-color: white;
+  position: fixed;
+  z-index: 1001;
+  top: 40%;
+  left: 40%;
+  /* bring your own prefixes */
+  transform: translate(-30%, -30%);
+  width: 35%;
+  height: 55%;
+  line-height: 1.3;
+  display:none;
+  animation: delay 1s ease-in-out;
+}
+
+/* text dialogue box delayes a lil */
+@keyframes delay {
+  from { opacity: 0 }
+  to { opacity: 100% }
+}
+
+.modal8{
+  border: solid 2px black;
+  background-color: white;
+  position: fixed;
+  z-index: 10004;
+  top: 20%;
+  left: 70%;
+  /* bring your own prefixes */
+  transform: translate(-30%, -30%);
+  width: 25%;
+  height: 30%;
+  line-height: 1.3;
+  display:none;
+  animation: delay 1s ease-in-out;
+}
+
+/* text dialogue box delayes a lil */
+@keyframes delay {
+  from { opacity: 0 }
+  to { opacity: 100% }
+}
+
+
+
+/* NOW, I WANT THE CLOSING BAR TO HAVE A YELLOW BG AND BLACK STROKE */
+.modal1-bar, .modal2-bar, .modal3-bar, .modal8-bar{
+  background-color: yellow;
+  border-bottom: solid 2px black;
+}
+
+/* WITHIN THIS, I WANT THE X MARK TO BE BIGGER AND BETTER */
+.close-button{
+  padding: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* OKAY YOURE DOING AMAZING. NOW, STYLIZING THE HEADER */
+.modal1-header, .modal2-header{
+  font-family: "crayonette-djr", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 6rem;
+  color: red;
+  padding: 10px;
+  text-align: center;
+}
+
+  /* TYPEWRITER EFFECT OF CONTENTS IN MODAL 2 HEADER  */
+
+  .modal2-header{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .05em solid rgb(21, 0, 255); /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(30, 0, 255); }
+}
+
+
+/* OKAY FINALLY THE CONTENT */
+.modal1-text{
+  font-size: 17px; 
+  color: black; 
+  font-family: "urbane-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 20px;
+  text-align: left;
+  word-break: break-word; /* This handles very long words */
+  overflow-wrap: break-word; /* Ensures lines break if necessary */
+  white-space: normal; /* Default behavior of wrapping */
+  height: 50%;
+  overflow-y: scroll;
+  text-indent: 50px;
+}
+
+.modal3-text{
+  font-size: 17px; 
+  color: black; 
+  font-family: "urbane-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 20px;
+  text-align: left;
+  word-break: break-word; /* This handles very long words */
+  overflow-wrap: break-word; /* Ensures lines break if necessary */
+  white-space: normal; /* Default behavior of wrapping */
+  height: 80%;
+  overflow-y: scroll;
+  text-indent: 50px;
+}
+
+.modal8-text{
+  font-size: 17px; 
+  color: black; 
+  font-family: "urbane-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 20px;
+  text-align: left;
+  word-break: break-word; /* This handles very long words */
+  overflow-wrap: break-word; /* Ensures lines break if necessary */
+  white-space: normal; /* Default behavior of wrapping */
+  height: 60%;
+  overflow-y: scroll;
+  text-indent: 50px;
+}
+
+
+/* Darken the background when the modal is open */
+.dark-background {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  pointer-events: none; /* Disable interactions */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11; /* Make sure it's behind the modal */
+}
+
+.roticurryimg{
+  display: none;
+  position: fixed; 
+  top: 50%;
+  left: 50%; 
+  /* bring your own prefixes */
+  transform: translate(-400%, -320%);
+  scale: 15%;
+  z-index: 10000;
+  /* animation: pulse 2s infinite;  */
+}
+
+.roticurry:hover{
+  font-size: 17px; 
+  color: rgb(255, 0, 0); 
+  font-family: "urbane-condensed", sans-serif;
+  font-weight: 600;
+  font-style:italic;
+  cursor: pointer;
+}
+
+.modal4,.modal5, .modal6, .modal7{
+  font-size: 15px; 
+  color: black; 
+  font-family: "urbane-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  border: 2px red dashed;
+  margin: 30px;
+  border-radius: 5%;
+  background: white;
+  scale: 120%;
+  text-align: center;
+  position: fixed;
+  display: none;
+  padding: 5px;
+  z-index: 100000;
+  animation: delay 2s infinite ease-in-out;
+  left: 20%;
+  top: 20%;
+  transform: translate(-30%, -30%);
+}
+
+.modal5{
+  left: 60%;
+  top: 60%;
+  transform: translate(-30%, -30%);
+}
+
+.modal6{
+  left: 80%;
+  top: 30%;
+  transform: translate(-30%, -30%);
+}
+
+.modal7{
+  left: 10%;
+  top: 80%;
+  transform: translate(-30%, -30%);
+}
+
+.sparkles{
+  display: none;
+  animation: rotation 2s infinite linear;
+  scale: 20%;
+  top: 0;
+  left: 0;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
