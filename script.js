@@ -390,8 +390,9 @@ function triggerRandomTickets() {
   }, randomInterval2);
 }
 
+const buttonElement = document.querySelector(".ourinitiativesticker");
 // Start both the popup and ticket generation when the page loads
-window.onload = function() {
+buttonElement.onclick = function() {
   triggerRandomPopups();  // Start generating popups
   triggerRandomTickets(); // Start generating tickets
 }
@@ -432,7 +433,7 @@ function triggerRandomstandup() {
 }
 
 // Start both the popup and ticket generation when the page loads
-window.onload = function() {
+buttonElement.onclick = function() {
   triggerRandomPopups();  // Start generating popups
   triggerRandomTickets(); // Start generating tickets
   triggerRandomstandup();
