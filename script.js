@@ -49,6 +49,7 @@ document.querySelector(".ourinitiativesticker").addEventListener("click", functi
     buttonElement.classList.add("slide-up");
     marqueeElement.classList.add("slide-up");
 
+
     // When it's clicked, image gallery is displayed
     const imagegallery = document.querySelector(".image-gallery");
     imagegallery.style.display = "block";
@@ -335,8 +336,7 @@ function showPopup() {
   popup.style.left = randomX + "px";
   popup.style.top = randomY + "px";
 
-  // Show the popup
-  popup.style.display = "block";
+  popup.style.display = "block"
 
   // Set a timeout to close the popup automatically after a while (optional)
   setTimeout(closePopup, 5000); // Closes after 5 seconds
