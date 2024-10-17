@@ -31,7 +31,7 @@
         
         <div class="image-gallery">
             <div class = "scroll-container">
-                <img class = "maggi" id = "maggi" src="../Behindthelabel/Images/maggi.png" alt="maggi">
+                    <img class = "maggi" id = "maggi" src="../Behindthelabel/Images/maggi.png" alt="maggi">
                 <img src="../Behindthelabel/Images/actII.png" alt="Act II">
                 <img class = "amul" src="../Behindthelabel/Images/amul.png" alt="Amul">
                 <img src="../Behindthelabel/Images/chai.png" alt="Chai">
@@ -101,8 +101,6 @@
                 </div>
                 <div class="modal1-text">
                     <div>In an increasingly interconnected world, few things transcend borders and cultures like food. From the moment we hold a product in our hands, the packaging speaks to us -- through its design, language, and the promises it makes about the contents inside. Food packaging, often overlooked as a mere wrapper or container, tells a much larger story about culture, globalization, and identity.</div><br> <div>This project is much more than an analysis of packaging; it’s an exploration of the stories we consume, the identities we project, and the shared experiences we create through something as simple—and as profound—as the food we buy and share. Through this lens, the world feels a little smaller, and our understanding of each other a little richer.</div> <br> <div>This is a platform to reconstruct the loss in community we often feel as immigrants. It's an initiative to put yourself in the unknown, take a chance and see where it goes.</div> <br> 
-                    
-                    <div> How it works? <br></div> <div>We drop a date and time for a new meetup every week. To make it fun, it's themed after a snack! Psst: It's a hint ;] Register for the event and fun swag, free food (an perhaps a new friend) follows! </div>
                 </div>
                 </div>
             </div>
@@ -148,7 +146,7 @@
 
             <!-- Modals with more deep info -->
             <div id="anecdotesModaltext2" class="modal8">
-                <div class="modal8-bar">
+                <div class="modal8-bar" id="modal8-bar">
                      <span class="close-button" id="closeModal8">&times;</span>
                 </div>
                 <div class="modal8-text">
@@ -157,15 +155,102 @@
                 </div>
             </div>
 
+            <!-- How this works, in coalition with "our story" -->
+            <div id="howthisworksModal" class="modal9">
+                <div class="modal9-bar" id="modal9-bar">
+                     <span class="close-button" id="closeModal9">&times;</span>
+                </div>
+                <div class = "modal9-header">
+                    How this works
+                </div>
+                <div class="modal9-text">                   
+                    How it works? <br> We drop a date and time for a new meetup every week. To make it fun, it's themed after a snack! Psst: It's a hint ;]<br> Register for the event and fun swag, free food (an perhaps a new friend) follows!
+                </div>
+            </div>
+
+            <!-- Deeper info on the Anecdotes page -->
+
+            <div id="anecdotesModaltext3" class="modal10">
+                <div class="modal10-bar" id="modal10-bar">
+                     <span class="close-button" id="closeModal10">&times;</span>
+                </div>
+                <div class="modal10-text">
+                    <div>The rush to build new condos when we can easily build new public markets is a failure of imagination. Ultimately, so much of the way we think about food is also a failure of imagination. </div> <br> <div>When we tell ourselves that food is just nutrition, we mask its political nature. When we construct simple narratives around food, we hide the complexity and fluidity of personal experience. And when we rely on the lunchbox moment to define racialized food experiences, we lose out on all the stories of joy and found family that food can create — overlooking the structural racism embedded in the urban landscape.</div>
+                </div>
+                </div>
+            </div>
 
             <!-- Etc etc. make sure to add more -->
 
             <!-- sparkle on hover -->
-            <div class = "sparkles" id = "sparkle1">
-                <img src = "../Behindthelabel/Images/star1.svg">
+            <div class = "sparkle-container">
+                <div class = "sparkles" id = "sparkle1">
+                    <img src = "../Behindthelabel/Images/star1.svg">
+                </div>
+                <div class = "sparkles2" id = "sparkle2">
+                    <img src = "../Behindthelabel/Images/star1.svg">
+                </div>
+                <div class = "sparkles3" id = "sparkle3">
+                    <img src = "../Behindthelabel/Images/star2.svg">
+                </div>
+                <div class = "sparklesbg" id = "sparklebg">
+                    <img src = "../Behindthelabel/Images/star-background.svg">
+                </div>
+                <div class = "sparklesbgroti" id = "sparklebgroti">
+                    <img src = "../Behindthelabel/Images/star-background.svg">
+                </div>
             </div>
             <!-- Food pics -->
             <div class = "roticurryimg" id ="roticurryimg"><img src = "../Behindthelabel/Images/roticurry.png" ></div>
+
+            <!-- "Discount coupon" structured popup -->
+            <div class = "registration-ticket" id ="registration-ticket">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="../Behindthelabel/Images/register-ticker-front.svg" alt="Front">
+                    </div>
+                    <div class="flip-card-back">
+                        <img class = "register-button" id ="registerbutton" src="../Behindthelabel/Images/register-asset.svg" alt="Back">
+                    </div>
+                </div>
+            </div>
+            <!-- When nah im not interested is clicked -->
+            <div class = "nah" id ="nah">
+                Nah, I'm not interested.
+            </div>
+            <!-- when register button is clicked  -->
+            <div class = "yes" id ="yes">
+                You're in!!!
+            </div>
+
+            <!-- Randomly opening popups - chapter headers + comedy shows -->
+            <div id="fuckpopup" class="fuckpopup">
+                <div class="fuckpopup-bar" id="fuckpopupbar">
+                    <span class="close-button" id="closefuckpopup" onclick="closePopup()">&times;</span>
+                </div>
+                <a href="../Behindthelabel/fuckpage/index.html" target="_blank" rel="noopener noreferrer">
+                    <div class="fuckpopupcontent">
+                        <img class= "fuckimage" src="../Behindthelabel/Images/Asset 2@3x.png" alt="fuck">
+                    </div>
+                </a>
+            </div>
+
+            <!-- Popup 2 is a ticket that doesnt do anything but zoom in -->
+            <div id="ticket" class="ticket" onclick="closeticket()">
+                <img class= "ticketimage" src="../Behindthelabel/Images/Asset 3@3x.png" alt="ticks">
+            </div>
+
+            <!-- Popup 3 is stand up comedy -->
+            <div id="standuppopup" class="standuppopup">
+                <div class="standuppopup-bar" id="standuppopupbar">
+                    <span class="close-button" id="closestanduppopup" onclick="closestandup()">&times;</span>
+                </div>
+                <a href="https://youtu.be/30cYjy7_DDg?si=gzmlvTC3S_Uibk_A" target="_blank" rel="noopener noreferrer">
+                    <div class="standuppopupcontent">
+                        <img class= "hasan" src="../Behindthelabel/Images/hasan.png" alt="hasan">
+                    </div>
+                </a>
+            </div>
         </div>
     </body>
     <script src="script.js"></script>

@@ -207,9 +207,17 @@ cursor:pointer;
 animation-play-state: paused;
 }
 
+.scroll-container ::-webkit-scrollbar{
+  display: none;
+}
+
+.image-gallery ::-webkit-scrollbar{
+  display: none;
+}
+
 @keyframes scroll {
     0% {
-        transform: translateX(5%);
+        transform: translateX(10%);
     }
     100% {
         transform: translateX(-100%);
@@ -244,16 +252,19 @@ animation-play-state: paused;
 .dalmakhani{
     scale:70%;
     min-height: 550px;
+    opacity: .5;
 }
 
 .doraemon{
     scale: 60%;
     min-height: 570px;
-    transform: rotate(35deg)
+    transform: rotate(35deg);
+    opacity: .5;
 }
 
 .cupnoods{
   transform: translateY(15%);
+  opacity: .5;
 }
 
 .cupnoods:hover {
@@ -271,6 +282,7 @@ animation-play-state: paused;
 
 .lomien{
   scale: 140%;
+  opacity: .5;
 }
 
 .madhuban{
@@ -280,6 +292,7 @@ animation-play-state: paused;
 
 .madhuban{
   transform: translateY(15%);
+  opacity: .5;
 }
 
 .matchamochi{
@@ -309,6 +322,7 @@ animation-play-state: paused;
 }
 .sekka{
   scale: 140%;
+  opacity: .5;
 }
 
 .sourcandy{
@@ -383,6 +397,10 @@ animation-play-state: paused;
 
 /* Styles for the modal1 (ourstory) popup */
 
+.modal1, .modal2, .modal3, .modal8, .modal9, .modal10 ::-webkit-scrollbar {
+  display: none;
+}
+
 /* 1) THE  CONTAINER*/
 .modal1{ 
   border: solid 2px black;
@@ -397,6 +415,7 @@ animation-play-state: paused;
   height: 55%;
   line-height: 1.3;
   display:none;
+  animation: delay 1s ease-in-out;
 }
 
 .modal2{
@@ -412,6 +431,7 @@ animation-play-state: paused;
   height: 25%;
   line-height: 1.3;
   display:none;
+  animation: delay 3s;
 }
 
 .modal3{
@@ -452,6 +472,37 @@ animation-play-state: paused;
   animation: delay 1s ease-in-out;
 }
 
+.modal9{
+  border: solid 2px black;
+  background-color: white;
+  position: fixed;
+  z-index: 10004;
+  top: 20%;
+  left: 70%;
+  /* bring your own prefixes */
+  transform: translate(-30%, -30%);
+  width: 40%;
+  height: 40%;
+  line-height: 1.3;
+  display:none;
+  animation: delay 2s ease-in-out;
+}
+
+.modal10{
+  border: solid 2px black;
+  background-color: white;
+  position: fixed;
+  z-index: 10004;
+  top: 50%;
+  left: 65%;
+  /* bring your own prefixes */
+  transform: translate(-30%, -30%);
+  width: 30%;
+  height: 35%;
+  line-height: 1.3;
+  display:none;
+  animation: delay 3s ease-in-out;
+}
 /* text dialogue box delayes a lil */
 @keyframes delay {
   from { opacity: 0 }
@@ -461,9 +512,10 @@ animation-play-state: paused;
 
 
 /* NOW, I WANT THE CLOSING BAR TO HAVE A YELLOW BG AND BLACK STROKE */
-.modal1-bar, .modal2-bar, .modal3-bar, .modal8-bar{
+.modal1-bar, .modal2-bar, .modal3-bar, .modal8-bar, .modal9-bar, .modal10-bar, .fuckpopup-bar, .standuppopup-bar{
   background-color: yellow;
   border-bottom: solid 2px black;
+  cursor:crosshair;
 }
 
 /* WITHIN THIS, I WANT THE X MARK TO BE BIGGER AND BETTER */
@@ -474,7 +526,7 @@ animation-play-state: paused;
 }
 
 /* OKAY YOURE DOING AMAZING. NOW, STYLIZING THE HEADER */
-.modal1-header, .modal2-header{
+.modal1-header, .modal2-header, .modal9-header, .modal10-header{
   font-family: "crayonette-djr", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -482,13 +534,8 @@ animation-play-state: paused;
   color: red;
   padding: 10px;
   text-align: center;
-}
-
-  /* TYPEWRITER EFFECT OF CONTENTS IN MODAL 2 HEADER  */
-
-  .modal2-header{
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .05em solid rgb(21, 0, 255); /* The typwriter cursor */
+  border-right: .02em solid rgb(21, 0, 255); /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   animation: 
@@ -510,7 +557,7 @@ animation-play-state: paused;
 
 
 /* OKAY FINALLY THE CONTENT */
-.modal1-text{
+.modal1-text, .modal3-text, .modal8-text, .modal9-text, .modal10-text{
   font-size: 17px; 
   color: black; 
   font-family: "urbane-condensed", sans-serif;
@@ -521,43 +568,25 @@ animation-play-state: paused;
   word-break: break-word; /* This handles very long words */
   overflow-wrap: break-word; /* Ensures lines break if necessary */
   white-space: normal; /* Default behavior of wrapping */
-  height: 50%;
   overflow-y: scroll;
   text-indent: 50px;
+}
+
+.modal1-text{
+  height: 50%;
 }
 
 .modal3-text{
-  font-size: 17px; 
-  color: black; 
-  font-family: "urbane-condensed", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  padding: 20px;
-  text-align: left;
-  word-break: break-word; /* This handles very long words */
-  overflow-wrap: break-word; /* Ensures lines break if necessary */
-  white-space: normal; /* Default behavior of wrapping */
   height: 80%;
-  overflow-y: scroll;
-  text-indent: 50px;
 }
 
-.modal8-text{
-  font-size: 17px; 
-  color: black; 
-  font-family: "urbane-condensed", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  padding: 20px;
-  text-align: left;
-  word-break: break-word; /* This handles very long words */
-  overflow-wrap: break-word; /* Ensures lines break if necessary */
-  white-space: normal; /* Default behavior of wrapping */
+.modal8-text, .modal9-text{
   height: 60%;
-  overflow-y: scroll;
-  text-indent: 50px;
 }
 
+.modal10-text{
+  height: 70%;
+}
 
 /* Darken the background when the modal is open */
 .dark-background {
@@ -581,7 +610,21 @@ animation-play-state: paused;
   transform: translate(-400%, -320%);
   scale: 15%;
   z-index: 10000;
-  /* animation: pulse 2s infinite;  */
+  animation: delay 1s ease-in-out;
+  cursor: pointer;
+}
+
+.sparklesbgroti{
+  display: none;
+  animation: pulse2 2s infinite linear;
+  animation: delay 2s linear;
+  position: fixed;
+  z-index: 1000;
+  top: 10;
+  left: 0;
+  position: absolute;
+  width: 500px;
+  height: auto;
 }
 
 .roticurry:hover{
@@ -593,6 +636,8 @@ animation-play-state: paused;
   cursor: pointer;
 }
 
+/* 
+THE ELEMENTS THAT LOOK LIKE BUTTONS AND NOT POPUPS */
 .modal4,.modal5, .modal6, .modal7{
   font-size: 15px; 
   color: black; 
@@ -637,8 +682,38 @@ animation-play-state: paused;
   display: none;
   animation: rotation 2s infinite linear;
   scale: 20%;
-  top: 0;
-  left: 0;
+  position: absolute;
+  z-index: 1000000;
+  position: absolute;
+  width: 800px;
+  height: auto;
+}
+
+.sparkles2{
+  display: none;
+  animation: rotation 2s infinite linear;
+  scale: 30%;
+  position: absolute;
+  z-index: 1000000;
+  width: 900px;
+  height: auto;
+}
+.sparkles3{
+  display: none;
+  animation: rotation 2s infinite linear;
+  scale: 30%;
+  position: absolute;
+  z-index: 1000000;
+  width: 200px;
+  height: auto;
+}
+.sparklesbg{
+  display: none;
+  animation: pulse2 2s infinite linear;
+  position: absolute;
+  z-index: -30;
+  width: 700px;
+  height: auto;
 }
 
 @keyframes rotation {
@@ -650,3 +725,181 @@ animation-play-state: paused;
   }
 }
 
+@keyframes pulse2 {
+	0% {
+		transform: scale(0.85);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.85);
+	}
+}
+
+
+/* MAGGI ASSET FOR WHEN MAGGI IS CLICKED */
+
+.registration-ticket {
+  display: none;
+  background-color: transparent;
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  z-index: 10000000;
+  top: 50%;
+  left: 52%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  scale: 120%;
+
+}
+
+.flip-card-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.registration-ticket:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  box-shadow: 0 5px 15px rgba(255, 238, 0, 0.4);
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #000000;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  height: 350px;
+  background-color: rgb(29, 29, 29);
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+}
+
+/* TO ADJUST THE STYLE OF THE REGISTER BUTTON SO IT'S NOT ESCAPING THE THINGS LOL */
+
+.register-button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  scale: 70%;
+  top: 50%;
+  transform: translateY(-10%);
+  cursor: pointer;
+}
+
+.nah{
+  font-size: 12px; 
+  color: yellow; 
+  text-decoration: underline;
+  font-family: "urbane-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  z-index: 100000000;
+  position:absolute;
+  width:100%;
+  bottom:0;
+  text-align:center;
+  display: none;
+}
+
+.nah:hover{
+scale: 110%;
+cursor: pointer;
+}
+
+.yes{
+  font-size: 20px; 
+  color: black; 
+  font-family: "urbane-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  border: 2px red dashed;
+  margin: 30px;
+  border-radius: 5%;
+  background: white;
+  scale: 140%;
+  text-align: center;
+  position: fixed;
+  display: none;
+  padding: 10px;
+  z-index: 1000000;
+  animation: delay 1s infinite ease-in-out;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/* FUCKPOPUP */
+
+.fuckpopup {
+  position: absolute;
+  width: 400px;
+  height: 335px;
+  background-color: white;
+  border: 2px solid black;
+  display: none; /* Hidden by default */
+  z-index: 700;
+}
+
+.fuckimage{
+  width: 100%;
+  height: auto;
+}
+
+.fuckpopup:hover {
+scale: 120%;
+}
+
+/* TICKET */
+
+.ticket {
+  position: absolute;
+  display: none; /* Hidden by default */
+  z-index: 910;
+}
+
+.ticketimage{
+  width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* STAND UP */
+
+.standuppopup {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  background-color: white;
+  border: 2px solid black;
+  display: none; /* Hidden by default */
+  z-index: 900;
+}
+
+.hasan{
+  width: 100%;
+  height: auto;
+}
+
+.standuppopup:hover {
+scale: 120%;
+}
